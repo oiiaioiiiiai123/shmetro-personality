@@ -1,0 +1,11 @@
+*.zip
+.DS_Store
+.env
+.env.*
+*.pem
+*.key
+node_modules/
+test-results/
+playwright-report/
+coverage/
+*.log

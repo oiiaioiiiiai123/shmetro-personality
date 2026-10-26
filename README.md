@@ -1,5 +1,9 @@
 # 测测你是哪条上海地铁 — V4.2 滚动修复版
 
+[开始测试](https://oiiaioiiiiai123.github.io/shmetro-personality/) · [个人主页](https://oiiaioiiiiai123.github.io/) · [源码仓库](https://github.com/oiiaioiiiiai123/shmetro-personality)
+
+2026-10-26 已通过 GitHub Pages 发布。无需登录或安装软件，两个网站可以独立更新。
+
 ## 修复问题
 
 上一版每次选择答案会调用 `showQuestion()`，其内部的 `show('quiz')` 无条件执行 `window.scrollTo({top:0})`，导致页面被拉回顶部。
@@ -28,3 +32,7 @@ V4.2 修改为：
 - 原版数据中的 `meta.version` 仍标记为 `4.1`，这是 V4.2 沿用的题目数据版本；V4.2 的滚动修复位于 HTML 脚本中，不修改题目、权重或人物设定。
 
 本地预览可以运行 `python3 -m http.server 4174 --bind 127.0.0.1`，然后访问 `http://127.0.0.1:4174/`。正式网站由 GitHub Pages 提供，不需要本机运行服务器。
+
+## 浏览器回归
+
+`scripts/check-metro.cjs` 通过 Playwright 和 Chrome 实际检查桌面/触摸排序、滚动位置、20题完整流程、所有角色的结果可达性、重测和刷新。设置 `METRO_QA_URL` 可指定线上或本机地址，`METRO_QA_OUT` 指定证据输出目录；`PLAYWRIGHT_MODULE` 与 `CHROME_PATH` 可指定已有测试工具。测试工具不参与网站运行。报告与截图默认位于已忽略的 `test-results/metro/`。

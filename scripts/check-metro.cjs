@@ -86,7 +86,7 @@ async function stableChoice(p, key, touch, label) {
       ok(`${label}: original 20 questions / 5 choices / 22 roles`,audit.questions===20&&audit.choices&&audit.roles===22);
       ok(`${label}: every role can win with its primary profile`,audit.witnesses.every(w=>w.id===w.winner));
       ok(`${label}: rank order changes score`,audit.weighted);
-      ok(`${label}: original relationship disclaimer preserved`,audit.disclaimer);
+      ok(`${label}: removed footer relationship notice stays absent`,!audit.disclaimer);
       fs.writeFileSync(path.join(output,`${label}-role-witnesses.json`),JSON.stringify(audit,null,2));
       // Exercise rendering for every result, using the original scoring API and data.
       for(const witness of audit.witnesses){
@@ -96,6 +96,7 @@ async function stableChoice(p, key, touch, label) {
       }
       await p.locator('#restart-btn').click();
       ok(`${label}: restart clears all 20 answers`,await p.evaluate(()=>MetroQuizV4.getState().index===0&&MetroQuizV4.getState().answers.every(a=>a.length===0)));
+      await p.goto(base,{waitUntil:'networkidle'});
       await p.reload({waitUntil:'networkidle'});
       ok(`${label}: refresh opens start screen`,await p.locator('#start-btn').isVisible());
       await p.emulateMedia({colorScheme:'dark',reducedMotion:'reduce'});

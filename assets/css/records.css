@@ -1,0 +1,41 @@
+/* V5 additions; the original quiz palette, layout and choice styles stay intact. */
+.start-bottom{flex-wrap:wrap;gap:10px}
+.start-secondary{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.start-secondary button{flex:1;min-width:145px}
+.action-ghost:disabled{opacity:.55;cursor:not-allowed}
+.storage-status,.saved-time,.saved-score{font-size:12px;line-height:1.8;color:#687865}
+.storage-status{margin:0 3px 18px;padding:10px 14px;border:1px solid #dce5d7;border-radius:12px;background:#f7f9f3}
+.saved-time{margin:12px 0 0}
+.result-persona{margin:0}
+.saved-score{margin:0 0 15px;font-variant-numeric:tabular-nums}
+.insight-label{font-size:13px;font-weight:750;color:#4d6754;margin:19px 0 8px}
+.role-keywords{display:flex;gap:7px;flex-wrap:wrap;margin:0 0 17px}
+.role-keyword{font-size:12px;line-height:1.6;border:1px solid #e2e8dd;background:#f4f7ef;border-radius:100px;padding:4px 10px;color:#5b715c}
+.archive-heading{font-size:clamp(27px,4vw,36px);line-height:1.4;margin:12px 0}
+.archive-intro{font-size:14px;color:#6c7a68;margin:0 0 20px}
+.archive-toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 25px}
+.archive-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.archive-card{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:12px;min-width:0;width:100%;padding:20px 18px;border:1px solid #dfe7d9;border-radius:17px;background:#fcfdf8;color:var(--ink);transition:border-color .16s,background .16s}
+.archive-card:hover{border-color:#a4b69c;background:#f4f8ef}
+.archive-card[aria-current=true]{border-color:#93ab87;background:#f1f6ec}
+.archive-card-top{display:flex;align-items:center;gap:10px;width:100%;flex-wrap:wrap}
+.archive-disc{display:grid;place-items:center;flex:none;min-width:44px;height:44px;padding:0 9px;border-radius:13px;background:var(--line-color);color:white;font-size:18px;font-weight:800;position:relative;overflow:hidden}
+.archive-disc:after{content:"";position:absolute;width:48px;height:48px;border:1px solid #ffffff65;border-radius:50%;left:24px;top:-20px}
+.archive-line{font-size:15px;font-weight:800}
+.my-result-badge{font-size:11px;line-height:1.6;color:#59724f;background:#e5eedc;border-radius:20px;padding:3px 8px;margin-left:auto}
+.archive-card-title{font-size:16px;line-height:1.75;font-weight:750;margin:0}
+.archive-card .role-keywords{margin:0}
+.archive-card .role-keyword{font-size:11px;padding:3px 8px}
+.archive-card-link{font-size:12px;color:#607953;margin-top:auto}
+.archive-bottom{margin:24px 0 0}
+.role-pagination{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:24px}
+.role-pagination button{min-width:0;white-space:normal}
+.result-buttons button{min-height:44px}
+.screen-heading:focus{outline:none}
+@media(max-width:640px){
+  .start-secondary{gap:9px}.start-secondary button{min-width:0;font-size:13px;padding:11px 9px}
+  .archive-grid{grid-template-columns:1fr;gap:12px}
+  .archive-card{padding:18px}.archive-toolbar button{flex:1;padding:10px 12px}
+  .result-buttons{gap:9px}.result-buttons button{flex:1;min-width:125px}
+  .eyebrow{overflow-wrap:anywhere}.role-pagination button{font-size:13px;padding:11px 8px}
+}
